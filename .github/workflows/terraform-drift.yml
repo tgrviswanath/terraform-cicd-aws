@@ -41,8 +41,12 @@ jobs:
       - name: Terraform Plan (Drift Check)
         id: plan
         run: |
+          set +e
           terraform plan -detailed-exitcode -no-color 2>&1 | tee plan_output.txt
-          echo "exit_code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
+          TF_EXIT=${PIPESTATUS[0]}
+          echo "exit_code=${TF_EXIT}" >> $GITHUB_OUTPUT
+          echo "Terraform exit code: ${TF_EXIT}"
+          exit 0
         working-directory: ${{ env.WORKING_DIR }}
         continue-on-error: true
 
