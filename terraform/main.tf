@@ -72,3 +72,5 @@ output "account_id"    { value = data.aws_caller_identity.current.account_id }
 output "sns_topic_arn" { value = aws_sns_topic.pipeline_alerts.arn }
 output "environment"   { value = var.environment }
 "# pipeline test" 
+
+# pipeline test trigger — feature/test-pipeline branch
