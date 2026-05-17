@@ -14,8 +14,8 @@ terraform {
 
 provider "aws" { region = var.region }
 
-variable "region"      { default = "ap-south-1" }
-variable "project"     { default = "handson" }
+variable "region" { default = "ap-south-1" }
+variable "project" { default = "handson" }
 variable "environment" { default = "dev" }
 
 locals {
@@ -66,10 +66,10 @@ resource "aws_sns_topic" "pipeline_alerts" {
 
 # ─── Outputs ──────────────────────────────────────────────────────────────────
 
-output "bucket_name"   { value = aws_s3_bucket.app.bucket }
-output "bucket_arn"    { value = aws_s3_bucket.app.arn }
-output "account_id"    { value = data.aws_caller_identity.current.account_id }
+output "bucket_name" { value = aws_s3_bucket.app.bucket }
+output "bucket_arn" { value = aws_s3_bucket.app.arn }
+output "account_id" { value = data.aws_caller_identity.current.account_id }
 output "sns_topic_arn" { value = aws_sns_topic.pipeline_alerts.arn }
-output "environment"   { value = var.environment }
+output "environment" { value = var.environment }
 
 # pipeline test trigger — feature/test-pipeline branch
