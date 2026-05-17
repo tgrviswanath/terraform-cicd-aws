@@ -33,6 +33,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false   # Must be false to get real exit codes
 
       - name: Terraform Init
         run: terraform init
